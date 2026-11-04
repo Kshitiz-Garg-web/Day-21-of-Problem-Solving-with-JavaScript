@@ -51,3 +51,62 @@ Newton's Method ek numerical technique hai, jiska use kisi number ya equation ka
 `Important`: Newton's Method mein bhi iterations ke liye loop chahiye. Isliye tumhari original condition ke liye agar strictly ek hi loop allowed hai, toh Newton's Method directly suitable nahi hai.
 `Remember`: Newton's Method mein hum repeatedly apne initial guess ko improve karte hain, taaki actual answer ke closer pahunch sakein.
 
+# DAY 2
+## learning 1
+conditonal block mai return key word must hai ider asa nai h jesa ki arrow fun m without {} this h single line m return krdeta h kind of this ok
+
+## learning 2
+Internally aise evaluate hoti hai:
+let value = 102
+(65 <= value) >= 90, 
+now see
+65 <= 102
+// true
+true >= 90
+// 1 >= 90
+// false
+Condition false
+Yahi tumhari problem hai!
+
+JavaScript mein comparison ka result Boolean hota hai (true / false), aur numeric comparison mein true ki value 1 aur false ki 0 hoti hai.
+JavaScript mein mathematical chained comparisons directly supported nahi hain. Range check karne ke liye && use karna hai. 
+
+## learning 3
+about the leap year
+Leap year check karne ke liye 3 rules hain:
+1. Agar year 400 se completely divisible hai, toh leap year hai.
+2. Agar year 100 se completely divisible hai, toh leap year nahi hai (unless 400 se bhi divisible ho).
+3. Agar year 4 se completely divisible hai, toh leap year hai (provided woh 100 se divisible na ho).
+
+
+![alt text](<images/Leap Year Rules Infographic.png>)
+
+hm log hmsa bath kerta leap leap year but actual reailty is different hai mtlb 
+ider ek twist hai 
+year have 2 category 
+1- leap year -> asa year jisma mai feb ka 1 day extra hota hai so overall 366 days hota h fr
+2- centurey year -> Har 100 saal ki century ka last year Century Year kehlata hai.
+
+हर Century Year, Leap Year नहीं होता।
+हर Leap Year, Century Year नहीं होता।
+कुछ years दोनों होते हैं, जैसे 2000.
+कुछ years दोनों में से कोई नहीं होते, जैसे 2025.
+
+**how we can check it then**
+Step 1: Kya year 100 se divisible hai?
+- No → Normal year (non-century year).
+- Yes → Century Year.
+Step 2: Ab Leap Year check karo:
+- Agar Century Year hai → 400 se divisible hona chahiye.
+- Agar Century Year nahi hai → 4 se divisible hona chahiye.
+
+**Ab ek question socho:**
+Agar hum sirf n % 4 === 0 check karte hain, toh 1900 ko bhi Leap Year maan lenge.
+Lekin calendar rules ke according 1900 Leap Year nahi hai.
+Isliye additional conditions ki zarurat padti hai.
+Ek line mein: हर 4 से divisible year Leap Year नहीं होता, क्योंकि 100 से divisible Century Years के लिए 400 वाला exception है।
+
+**Leap Year Calculation & Gregorian Calendar Adjustment**
+**Why Does the Gregorian Calendar Follow the 4, 100 & 400-Year Leap Year Rule?**
+Century Year mein Leap Day skip karna approximately accumulated difference ko compensate karta hai.
+Lekin Gregorian Calendar ne 128-year interval select nahi kiya. Usne 400-year cycle select kiya, jisme 97 Leap Years hote hain.
